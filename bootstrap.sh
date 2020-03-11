@@ -17,7 +17,7 @@ if [ ! -d "$git_dir" ]; then
     exit 1
 fi
 
-if [ ! -f "$git_dir/info/sparse-checkout" ] then
+if [ ! -f "$git_dir/info/sparse-checkout" ]; then
     cp sparse-checkout.list "$git_dir/info/sparse-checkout"
     ( cd source && git sparse-checkout init )
 fi
