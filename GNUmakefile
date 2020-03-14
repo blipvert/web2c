@@ -12,7 +12,7 @@ system-pkgs := \
 without := x mf-x-toolkit
 
 configure-opts := \
-	--prefix=$(or $(PREFIX),/opt/texlive) \
+	$(if $(PREFIX),--prefix="$(PREFIX)") \
 	$(addprefix --disable-,$(disabled-pkgs)) \
 	$(addprefix --enable-,$(enabled-pkgs)) \
 	$(addprefix --with-system-,$(system-pkgs)) \
