@@ -1,6 +1,6 @@
 optional-pkgs := all-pkgs native-texlive-build shared largefile		\
-	synctex mflua mfluajit pmp upmp ptex eptex uptex euptex aleph	\
-	xetex pdftex luatex luajittex
+	synctex mf mflua mfluajit mp pmp upmp tex ptex eptex uptex      \
+	euptex aleph xetex pdftex luatex luajittex
 
 enabled-pkgs := $(filter $(ENABLE),$(optional-pkgs)) web2c
 disabled-pkgs := $(filter-out $(ENABLE),$(optional-pkgs))
