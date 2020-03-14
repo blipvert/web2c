@@ -18,16 +18,16 @@ configure-opts := \
 	$(addprefix --with-system-,$(system-pkgs)) \
 	$(addprefix --without-,$(without))
 
-all: build
+all: clean configure build
+
+configure:
+	( mkdir -p build && cd build && ../source/configure $(configure-opts) )
 
 build:
-	rm -fr build
-	mkdir build
-	( cd build && ../source/configure $(configure-opts) )
 	$(MAKE) -C build
 
 clean:
 	rm -fr build
 
-.PHONY: build all
+.PHONY: configure build all clean
 
