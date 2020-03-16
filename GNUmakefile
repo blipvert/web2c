@@ -18,10 +18,19 @@ configure-opts := \
 	$(addprefix --with-system-,$(system-pkgs)) \
 	$(addprefix --without-,$(without))
 
+git-dir = $(shell cd source && git rev-parse --git-dir )
+
 all: clean configure build
 
 configure:
 	( mkdir -p build && cd build && ../source/configure $(configure-opts) )
+
+reautoconf:
+	( cd source && ./reautoconf )
+
+sparse-checkout:
+	cp sparse-checkout.list $(git-dir)/info/sparse-checkout
+	( cd source && git sparse-checkout init )
 
 build:
 	$(MAKE) -C build
@@ -29,5 +38,5 @@ build:
 clean:
 	rm -fr build
 
-.PHONY: configure build all clean
+.PHONY: configure reautoconf sparse-checkout build all clean
 
