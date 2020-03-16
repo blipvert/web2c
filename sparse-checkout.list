@@ -11,6 +11,8 @@
 /texk/kpathsea/*
 /texk/texlive/*
 /texk/web2c/*
+!/texk/web2c/web2c/web2c-lexer.c
+!/texk/web2c/web2c/web2c-parser.[ch]
 !configure
 !Makefile.in
 !aclocal.m4
