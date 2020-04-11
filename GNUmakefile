@@ -1,3 +1,12 @@
+ifdef ENABLE
+configure.mk:
+	@echo "ENABLE := $(ENABLE)" > $@
+
+.PHONY: configure.mk
+endif
+
+include configure.mk
+
 optional-pkgs := all-pkgs native-texlive-build shared largefile		\
 	synctex mf mflua mfluajit mp pmp upmp tex ptex eptex uptex      \
 	euptex aleph xetex pdftex luatex luajittex
